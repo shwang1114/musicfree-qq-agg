@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    {
+      "name": "QQ聚合音源",
+      "url": "https://raw.githubusercontent.com/shwang1114/musicfree-qq-agg/main/qq_agg.js",
+      "version": "1.0.0"
+    }
+  ]
+}
