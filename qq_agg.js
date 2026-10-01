@@ -432,17 +432,17 @@ async function $d25ff3d008f9e7e0$var$getMediaSource(musicItem, quality) {
             url = apiResponse.data.music_url;
         }
     } catch (error) {
-        console.warn("xunhuisi 解析失败, 转 cyapi", error.message);
+        console.warn("xunhuisi 解析失败, 转 suol.cc", error.message);
     }
     if (!url) {
         try {
-            const apiUrl = `https://cyapi.top/API/qq_music.php?apikey=${CYAPI_KEY}&type=json&mid=${musicItem.songmid}`;
+            const apiUrl = `http://ws.suol.cc/api/qq/qy.php?mid=${musicItem.songmid}`;
             const apiResponse = await (0, ($parcel$interopDefault($fFvhi$axios))).get(apiUrl, {headers: $d25ff3d008f9e7e0$var$headers});
-            if (apiResponse.data && apiResponse.data.url) {
+            if (apiResponse.data && apiResponse.data.code === 200 && apiResponse.data.url) {
                 url = apiResponse.data.url;
             }
         } catch (error) {
-            console.error("cyapi 解析失败", error.message);
+            console.error("suol.cc 解析失败", error.message);
         }
     }
     return {url: url};
